@@ -13,8 +13,22 @@
           </div>
         {% endif %}
       </div>
-      <h2 class="article-title">{{ object.title }}</h2>
-      <p class="article-content">{{ object.content }}</p>
+      <html>
+        <body >
+            <h2 class="article-title">{{ object.title }}</h2>
+            <table>
+                <tr>
+                <td width=70%>
+                    <p class="article-content">{{ object.content }}</p>
+                </td>
+                <td width=30%>
+                    <div class="fakeimg" style="height:200px;">Image</div>
+                </td>
+                </tr>
+            </table>
+            <!-- <p>Source:</p> -->
+        </body>
+        </html>
     </div>
   </article>
 {% endblock content %}
