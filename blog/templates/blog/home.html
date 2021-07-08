@@ -14,7 +14,7 @@
                   <table>
                       <tr>
                       <td width=70%>
-                          <p class="article-content">{{ post.content }}</p>
+                          <p class="article-content">{{ post.content |truncatewords:30 }}</p>
                       </td>
                       <td width=30% align="right">
                           <div class="exercise" <a target="_blank" href="{{post.header_image.url}}">
