@@ -10,8 +10,22 @@
               <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-            <div class="fakeimg" style="height:200px;">Image</div> <! –– new ––>
-            <p class="article-content">{{ post.content }}</p>
+            
+            <table>
+            <tr>
+              <td width=70%>
+                <p class="article-content">{{ post.content }}</p>
+              </td>
+              <td width=30% align="right">
+                  <div class="exercise" <a target="_blank" href="{{post.header_image.url}}">
+                  <img style="border: 1px solid #ddd;
+                  padding: 5px;
+                  height:130px;
+                  width: 220px;" src="{{post.header_image.url}}"  alt="exercise">
+                  </a></div>
+              </td>
+              </tr>
+            </table>
           </div>
         </article>
     {% endfor %}
