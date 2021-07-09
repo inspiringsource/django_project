@@ -1,5 +1,7 @@
+
 {% extends "blog/base.html" %}
 {% block content %}
+    {% if user.is_authenticated %}
     {% for post in posts %}
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
@@ -31,6 +33,20 @@
           </div>
         </article>
     {% endfor %}
+    {% else %}
+    <style>
+    h1 {text-align: center;}
+
+    </style>
+    <body>
+
+      <h1>Please Login</h1>
+      <p></p>
+      
+    </body>
+    {% endif %}
+
+    {% if user.is_authenticated %}
     {% if is_paginated %}
 
       {% if page_obj.has_previous %}
@@ -49,6 +65,14 @@
       {% if page_obj.has_next %}
         <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
         <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      {% endif %}
+      {% else %}
+      <body>
+  
+        
+        <p></p>
+        
+      </body>
       {% endif %}
 
     {% endif %}
